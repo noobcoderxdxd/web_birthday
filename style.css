@@ -1,0 +1,30 @@
+*{
+     font-family: "Outfit", sans-serif;
+     /* outline: 1px red solid; */
+}
+body{
+    margin: 0;
+    background-color: #102830;
+}
+.main-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#name{
+    padding: 15px;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+#submit{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+.submit-btn{
+    text-align: center;
+    margin: 20px;
+}

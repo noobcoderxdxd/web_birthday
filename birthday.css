@@ -1,0 +1,162 @@
+*{
+    font-family: "Outfit", sans-serif;
+    /* outline: 1px solid red; */
+}
+body{
+    margin: 0;
+    background-color: #e9456c;
+}
+/* CAKE */
+.cake{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.candle {
+    width: 15px;
+    height: 60px;
+    background-color: ghostwhite;
+    position: absolute;
+    top: -60px;
+    left: calc(50% - 7.5px);
+    border-radius: 3px;
+    margin: 0 auto;
+}
+.flame {
+  width: 10px;
+  height: 20px;
+  background: orange;
+  border-radius: 50% 50% 50% 50%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px 5px orange;
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+.cake-body1{
+    width: 300px;
+    height: 40px;
+    background: linear-gradient(to bottom, #5c4033, #3b251a);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 8px 0 #2a1a12;
+    position: relative;
+    top: -15px;
+    z-index: 2;
+    margin: 0 auto;
+}
+.cake-body3{
+    width: 300px;
+    height: 75px;
+    background: linear-gradient(to bottom, #5c4033, #3b251a);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 8px 0 #2a1a12;
+    position: relative;
+    top: -15px;
+    z-index: 2;
+    margin: 0 auto;
+}
+.cake-body5{
+    width: 300px;
+    height: 90px;
+    background: linear-gradient(to bottom, #5c4033, #3b251a);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 8px 0 #2a1a12;
+    position: relative;
+    top: -15px;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.cake-body2,
+.cake-body4 {
+    width: 300px;
+    height: 25px;
+    background: linear-gradient(to bottom, #f9dede, #f4e7e1);
+    box-shadow: 0 4px 0 #e3caca;
+    position: relative;
+    top: -20px;
+    z-index: 1;
+    margin: 0 auto;
+}
+.cake-body6{
+    
+    width: 300px;
+    height: 25px;
+    background: linear-gradient(to bottom, #f9dede, #f4e7e1);
+    box-shadow: 0 4px 0 #e3caca;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    top: -20px;
+    z-index: 1;
+    margin: 0 auto;
+}
+.cake-body5,
+.cake-body6 {
+    width: 300px;
+}
+.cake-body3,
+.cake-body4 {
+    width: 220px;
+}
+.cake-body2,
+.cake-body1 {
+    width: 140px;
+/* PLATE */
+}
+.plate{
+    width: 350px;
+    height: 15px;
+    position: relative;
+    top: -16px;
+    background-color: ghostwhite;
+    border-radius: 3px 3px 10px 10px;
+}
+.birthday-message{
+    color: #052842;
+    font-weight: bolder;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 200px;
+    transform: translate(-50%, -50%);
+}
+#typewriter{
+    border-right: 2px solid #1e1e1e;
+    animation: blinkCursor 0.7s steps(1) infinite;
+}
+@keyframes blinkCursor {
+  0% { border-color: black; }
+  50% { border-color: transparent; }
+  100% { border-color: black; }
+}
+
+/* MEDIA */
+@media (max-width: 600px){
+ #typewriter {
+    font-size: 1.2rem;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+.birthday-message{
+    width: 90%;
+}
+body {
+    width: 100%;
+    overflow-x: hidden;
+    }
+}

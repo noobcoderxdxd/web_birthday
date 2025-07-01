@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="birthday.css">
+</head>
+<body>
+    <div class="cake">
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+        <div class="cake-body1"></div>
+        <div class="cake-body2"></div>
+        <div class="cake-body3"></div>
+        <div class="cake-body4"></div>
+        <div class="cake-body5"></div>
+        <div class="cake-body6"></div>
+        <div class="plate"></div>
+    </div>
+    <!-- <div class="message"> -->
+        <h1 class="birthday-message">
+            <span id="typewriter"></span>
+        </h1>
+    <!-- </div> -->
+    <audio id="bg-music" src="birthday_song.mp3" autoplay loop></audio>
+</body>
+<script>
+  window.addEventListener("load", () => {
+    const audio = document.getElementById("bg-music");
+    audio.volume = 0.1;
+
+    // Attempt autoplay, fallback to click
+    audio.play().catch(() => {
+      document.body.addEventListener(
+        "click",
+        () => {
+          audio.play();
+        },
+        { once: true }
+      );
+    });
+
+    const name = localStorage.getItem("username") || "Friend";
+
+    const messages = [
+      `Happy Birthday, ${name}! `,
+      "sana maappreciate mo tong ginawa kong virtual cake ko sayo HAHAHAHAHA ",
+      "and wish ko lang sayo is enjoyin mo lang ung life mo ",
+      "and nandito lang ako palagi sayo <3 ",
+      "ayun lang enjoyin mo ung araw mo ngayon hehehe ",
+      "bye bye :> ",
+    ];
+
+    let i = 0;
+    let j = 0;
+    let currentMsg = [];
+    let isDeleting = false;
+
+    const display = document.getElementById("typewriter");
+
+    function typeLoop() {
+      display.innerHTML = currentMsg.join("");
+
+      if (i < messages.length) {
+        if (!isDeleting && j <= messages[i].length) {
+          currentMsg.push(messages[i][j]);
+          j++;
+        }
+
+        if (isDeleting && j > 0) {
+          currentMsg.pop();
+          j--;
+        }
+
+        if (j === messages[i].length) {
+          isDeleting = true;
+
+          setTimeout(() => {
+            typeLoop(); // continue deleting after pause
+          }, 3000);
+          return;
+        }
+
+        if (isDeleting && j === 0) {
+          isDeleting = false;
+          i = (i + 1) % messages.length;
+          currentMsg = [];
+        }
+      }
+
+      const typingSpeed = isDeleting ? 30 : 60;
+      setTimeout(typeLoop, typingSpeed);
+    }
+
+    typeLoop(); // Start the typewriter effect
+  });
+</script>
+
+
+</html>
